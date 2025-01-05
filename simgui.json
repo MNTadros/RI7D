@@ -1,6 +1,6 @@
 {
   "HALProvider": {
-    "Other Devices": {
+    "Timing": {
       "window": {
         "visible": false
       }
@@ -10,6 +10,15 @@
     "types": {
       "/FMSInfo": "FMSInfo"
     }
+  },
+  "NetworkTables Info": {
+    "shuffleboard@1": {
+      "Subscribers": {
+        "open": true
+      },
+      "open": true
+    },
+    "visible": true
   },
   "NetworkTables View": {
     "visible": false

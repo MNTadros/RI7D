@@ -24,6 +24,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
+    m_robotDrive = new DifferentialDrive(m_leftMotor::set, m_rightMotor::set); // Initialize m_robotDrive
+
     SendableRegistry.addChild(m_robotDrive, m_leftMotor);
     SendableRegistry.addChild(m_robotDrive, m_rightMotor);
 
@@ -32,7 +34,6 @@ public class Robot extends TimedRobot {
     // gearbox is constructed, you might have to invert the left side instead.
     m_rightMotor.setInverted(true);
 
-    m_robotDrive = new DifferentialDrive(m_leftMotor::set, m_rightMotor::set);
     m_leftStick = new Joystick(0);
     m_rightStick = new Joystick(1);
   }

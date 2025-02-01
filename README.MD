@@ -38,13 +38,13 @@ Here’s a glimpse of the final robot in action:
 
 ## 🖼️ Image Gallery
 
-Explore the journey through our image [gallery](https://github.com/MNTadros/RI7D), showcasing the various stages of the robot's development. From initial sketches and brainstorming sessions to the final product, these images capture the essence of our week-long adventure.
+Explore the journey through our image [gallery](https://mntadros.github.io/RI7D/DOCS/gallery), showcasing the various stages of the robot's development. From initial sketches and brainstorming sessions to the final product, these images capture the essence of our week-long adventure.
 
 ---
 
 ## 📚 Documentation
 
-For a detailed breakdown of the journey, including challenges, fun facts, and lessons learned, check out the [Documentation](https://github.com/MNTadros/RI7D).
+For a detailed breakdown of the journey, including challenges, fun facts, and lessons learned, check out the [Documentation](https://mntadros.github.io/RI7D/DOCS/).
 
 ---
 
@@ -57,7 +57,7 @@ A huge thank you to everyone who contributed to this project, especially the tea
 ## 🔗 Links
 
 - [GitHub Repository](https://github.com/MNTadros/RI7D)
-- [Live Documentation](https://github.com/MNTadros/RI7D)
+- [Live Documentation](https://mntadros.github.io/RI7D/DOCS/)
 - [FRC Robotics](https://docs.wpilib.org/en/stable/index.html) (Documentation used for the project)
 
 ---

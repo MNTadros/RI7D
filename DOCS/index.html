@@ -4,243 +4,852 @@
 <head>
     <title>RI7D Docs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="imgs/logo.png">
+    <link rel="icon" type="image/png" href="./imgs/favicon.png">
     <script src="main.js"></script>
-
-    <style>
-        /* Custom styles for the sidebar */
-        .sidebar {
-            width: 250px;
-            transition: transform 0.3s ease-in-out;
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: white;
-            padding: 1rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-content {
-            margin-left: 250px; /* Adjust for sidebar width */
-            transition: margin-left 0.3s ease-in-out;
-        }
-
-        .main-content.expanded {
-            margin-left: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body class="bg-gradient-to-r from-orange-400 to-yellow-300 flex justify-center items-center min-h-screen p-4">
+
     <!-- Sidebar Toggle Button -->
-<!-- Sidebar Toggle Button -->
-<div class="sidebar-toggle" onclick="toggleSidebar()">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-    </svg>
-</div>
-
-
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Chapters</h2>
-        <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-            <li class="mb-2"><a href="#chapter1" class="hover:text-purple-600">Chapter I: Optimism</a></li>
-            <li class="mb-2"><a href="#chapter2" class="hover:text-purple-600">Chapter II: Cracks in the Plan</a></li>
-            <li class="mb-2"><a href="#chapter3" class="hover:text-purple-600">Chapter III: Despair</a></li>
-        </ul>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
     </div>
+
+<!-- Sidebar -->
+<div id="sidebar"
+    class="sidebar bg-white p-6 rounded-lg shadow-lg w-64 fixed top-0 left-0 h-full overflow-y-auto transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 flex flex-col">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        Navigation
+    </h2>
+    <ul class="space-y-3 text-gray-600 flex-grow">
+
+        <!-- Project Overview -->
+        <li>
+            <a href="#project-overview"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Project Overview
+            </a>
+        </li>
+
+        <!-- Timeline -->
+        <li>
+            <a href="#timeline"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Timeline
+            </a>
+        </li>
+
+        <!-- Chapters Subsection -->
+        <li>
+            <details class="group">
+                <summary
+                    class="cursor-pointer py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <span>Chapters</span>
+                    </div>
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform duration-200"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                        </path>
+                    </svg>
+                </summary>
+                <ul class="mt-2 ml-4 space-y-2 border-l-2 border-purple-100 pl-4">
+                    <li><a href="#chapter1"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            I: Optimism</a></li>
+                    <li><a href="#chapter2"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            II: Cracks in the Plan</a></li>
+                    <li><a href="#chapter3"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            III: Despair</a></li>
+                    <li><a href="#chapter4"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            IV: The Turning Point</a></li>
+                    <li><a href="#chapter5"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            V: Recovery</a></li>
+                    <li><a href="#chapter6"
+                            class="block py-1 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200">Chapter
+                            VI: At the Last Moment</a></li>
+                </ul>
+            </details>
+        </li>
+
+        <!-- Inventory -->
+        <li>
+            <a href="#inventory"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                </svg>
+                Inventory
+            </a>
+        </li>
+
+        <!-- Gallery -->
+        <li>
+            <a href="#gallery-section"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                Gallery
+            </a>
+        </li>
+
+        <!-- Fun Facts -->
+        <li>
+            <a href="#fun-facts"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                Fun Facts
+            </a>
+        </li>
+
+        <!-- Final Results -->
+        <li>
+            <a href="#final-result"
+                class="block py-2 hover:text-purple-600 hover:bg-purple-50 rounded-md px-3 transition-colors duration-200 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                Final Result
+            </a>
+        </li>
+    </ul>
+</div>
 
     <!-- Main Content -->
     <div id="main-content" class="main-content bg-white p-8 rounded-lg shadow-2xl w-full max-w-5xl">
+
         <!-- Header Section -->
         <div class="flex items-center justify-center mb-6">
             <img src="imgs/logo.png" alt="Logo" class="mr-4 border-4 border-orange-300 w-16 h-16">
-            <h1 class="text-3xl font-bold text-gray-800">RI7D: An Engineering Journey – Insights, Rants, and Revelations</h1>
+            <h1 class="text-3xl font-bold text-gray-800">RI7D: An Engineering Journey – Insights, Rants, and Revelations
+            </h1>
         </div>
 
-        <!-- Chapter I: Optimism -->
-        <section id="chapter1" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Chapter I: Optimism</h2>
-            <p class="text-gray-600 leading-relaxed">
-                Content for Chapter I goes here.
-            </p>
-        </section>
-
-        <!-- Chapter II: Cracks in the Plan -->
-        <section id="chapter2" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Chapter II: Cracks in the Plan</h2>
-            <p class="text-gray-600 leading-relaxed">
-                Content for Chapter II goes here.
-            </p>
-        </section>
-
-        <!-- Chapter III: Despair -->
-        <section id="chapter3" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Chapter III: Despair</h2>
-            <p class="text-gray-600 leading-relaxed">
-                Content for Chapter III goes here.
-            </p>
-        </section>
-
         <!-- Project Overview -->
-        <section class="mb-8">
+        <section class="mb-8" id="project-overview">
             <h2 class="text-2xl font-semibold text-gray-700 mb-4">Project Overview</h2>
             <p class="text-gray-600 leading-relaxed">
-                Provide a brief overview of your project here. Explain what it does, its purpose, and any key features.
+                RI7D is a self-imposed challenge, inspired by the Ri3D event created by iR3 Creative Engineering, is an
+                intensive robotics competition where a group of aspiring engineers and FIRST Robotics alumni design,
+                build, and
+                decorate a functional, mostly FRC-legal robot in just <strong>7 days</strong> — far less than the 6
+                weeks given to
+                high school teams in the FIRST Robotics Competition (FRC). The focus is on teaching people how to build
+                a robot and understand each component within 7 days.
             </p>
+            <div class="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    <strong>Key Features:</strong>
+                </p>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed mb-4">
+                    <li class="mb-2"><strong>Mentorship-Driven:</strong> Beginner students are guided by experienced
+                        upper-year mentors and FRC alumni across three subteams: <strong>Mechanical</strong>,
+                        <strong>Control
+                            Systems</strong>, and <strong>CAD</strong>.</li>
+                    <li class="mb-2"><strong>Team Structure:</strong>
+                        <ul class="list-disc list-inside ml-6">
+                            <li class="mb-1"><strong>10 experienced FRC Mentors:</strong> 3 Mechanical, 3 CAD, and 4
+                                Control Systems experts.
+                            </li>
+                            <li><strong>5 Newbies:</strong> Selected through applications and interviews.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Purpose:</strong> To foster engineering passion, develop essential skills, and
+                        contribute to the global STEM community through hands-on robotics experience.</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed">
+                    This fast-paced challenge not only tests technical skills but also encourages teamwork, creativity,
+                    and
+                    problem-solving under tight deadlines. For a detailed list of parts and materials used in the
+                    construction of the robot, check out the <a href="#inventory"
+                        class="text-purple-500 hover:underline">Inventory</a> section.
+                </p>
+            </div>
         </section>
 
-        <!-- Project Breakdown -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Project Breakdown</h2>
-            <p class="text-gray-600 leading-relaxed">
-                Break down the project into key steps or components:
-            </p>
-            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-                <li class="mb-2">Step 1: Description of the first step.</li>
-                <li class="mb-2">Step 2: Description of the second step.</li>
-                <li class="mb-2">Step 3: Description of the third step.</li>
-            </ul>
+        <!-- Timeline of Event Planning -->
+        <section class="mb-8" id="timeline">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4 mt-4">Robot in 7 Days (Ri7D) 2025 Timeline</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">This was the planned timeline before the event started.</p>
+            <div class="timeline">
+                <!-- Day 1: Kickoff -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-red-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 4th - Kickoff @ ACE Climatic Wind Tunnel
+                        </h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> The event kicks off at the ACE Climatic Wind Tunnel in Oshawa.
+                            Teams will watch the game animation, review the rulebook, brainstorm strategies, identify
+                            subsystems, and plan the timeline. Mentees must understand all subteams and choose their
+                            focus for the next three days. At this point, a general point-scoring design for the robot
+                            should be decided, and the CAD model should start to be developed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-orange-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 6th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> Teams will work at <strong>The Dungeon (an engineering design
+                                space)</strong>.
+                            Activities include prototyping subsystems, building the drivetrain and electrical board,
+                            programming the drivetrain, and CADing the robot. The CAD model should be completed by the
+                            end of the day, and the electrical board should be started.
+                            Any issues with the design should be ironed out, and the point-scoring system should be
+                            prototyped with wood.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-yellow-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 7th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> CAD and Control Systems
+                            teams will focus on finishing subsystem designs and implementing them, while the Mechanical
+                            team will continue
+                            building. The electrical board will be completed, and programming for subsystems will begin.
+                            Mentees should have decided which subteam they
+                            wish to focus on and learn more about.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 4: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-green-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 8th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> Subsystems will be attached to
+                            the drivetrain, and the electrical board will be tested with each separate subsystem.
+                            Programming will
+                            be tested, and any issues will be addressed and prototyped. The robot should be able to
+                            drive by the end of the day.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 5: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-blue-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 9th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> Teams will focus on debugging, fixing, and rewiring. Cable
+                            management will be prioritized, and subsystems will be fine-tuned for optimal performance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 6: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-indigo-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 10th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> Teams will continue debugging and fixing issues. Final adjustments
+                            will be made to the robot, and the electrical system will be finalized. The robot will be
+                            prepared for filming and content creation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 7: Work @ The Dungeon -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-purple-400"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-lg font-semibold text-gray-700">Jan 11th - Work @ The Dungeon</h3>
+                        <p class="text-gray-600">
+                            <strong>Summary:</strong> The final day will focus on filming the robot, editing the video,
+                            and creating content. Any last-minute fixes will be completed, and the robot will be
+                            finalized for submission.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Inventory and description (Collapsible) -->
-        <section class="mb-8">
+        <section class="mb-4" id="inventory">
             <details>
                 <summary class="text-2xl font-semibold text-gray-800 mb-6 cursor-pointer hover:text-purple-600">
                     Inventory
                 </summary>
+                <p class="text-gray-600 leading-relaxed mt-4">
+                    All of the components listed below were generously borrowed from various teams in and around the
+                    Toronto area. Their contributions have been invaluable in helping us achieve our goals and bring our
+                    vision to life.
+                </p>
                 <ul class="space-y-4 mt-4">
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/BATTERY.png" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">2x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">2x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">BATTERY</span>
-                            <p class="text-gray-700 text-sm">The 12V 18Ah sealed lead-acid battery powers the entire FRC robot, providing the necessary current for all components​.</p>
+                            <p class="text-gray-700 text-sm">The 12V 18Ah sealed lead-acid battery powers the entire FRC
+                                robot, providing the necessary current for all components​.</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/CIRCUIT BREAKER.jpg" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">CIRCUIT BREAKER</span>
-                            <p class="text-gray-700 text-sm">The 120A main circuit breaker acts as both the main power switch and a protection device against excessive current draw​.</p>
+                            <p class="text-gray-700 text-sm">The 120A main circuit breaker acts as both the main power
+                                switch and a protection device against excessive current draw​.</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/PDP.webp" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">PDP</span>
-                            <p class="text-gray-700 text-sm">Distributes 12V power from the battery to various robot components, including auto-resetting circuit breakers​.</p>
+                            <p class="text-gray-700 text-sm">Distributes 12V power from the battery to various robot
+                                components, including auto-resetting circuit breakers​.</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/RADIO.jpg" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">RADIO</span>
-                            <p class="text-gray-700 text-sm">Enables wireless communication between the robot and the Driver Station, operating as an access point or field bridge</p>
+                            <p class="text-gray-700 text-sm">Enables wireless communication between the robot and the
+                                Driver Station, operating as an access point or field bridge</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/ROBORIO.jpg" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">ROBORIO</span>
-                            <p class="text-gray-700 text-sm">The main robot controller, handling sensor inputs, motor outputs, and communications via CAN, Ethernet, and USB​</p>
+                            <p class="text-gray-700 text-sm">The main robot controller, handling sensor inputs, motor
+                                outputs, and communications via CAN, Ethernet, and USB​</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/SNAP ACTION BREAKER.jpeg" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">8x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">8x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">SNAP ACTION BREAKER</span>
-                            <p class="text-gray-700 text-sm">Provides overcurrent protection for individual circuits in the PDP, preventing damage to components.</p>
+                            <p class="text-gray-700 text-sm">Provides overcurrent protection for individual circuits in
+                                the PDP, preventing damage to components.</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/VICTOR SPX.webp" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">4x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">4x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">VICTOR SPX MOTOR CONTROLLER</span>
-                            <p class="text-gray-700 text-sm">A compact and efficient speed controller that manages brushed DC motors using PWM or CAN control​</p>
+                            <p class="text-gray-700 text-sm">A compact and efficient speed controller that manages
+                                brushed DC motors using PWM or CAN control​</p>
                         </div>
                     </li>
                     <li class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 relative">
                         <div class="relative">
                             <img src="imgs/inventory/VRM.jpg" class="w-12 h-12 rounded-md">
-                            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
+                            <span
+                                class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">1x</span>
                         </div>
                         <div>
                             <span class="font-mono text-blue-600 text-lg">VRM</span>
-                            <p class="text-gray-700 text-sm">Provides stable 12V and 5V power outputs for the robot radio, vision cameras, and other electronics​.</p>
+                            <p class="text-gray-700 text-sm">Provides stable 12V and 5V power outputs for the robot
+                                radio, vision cameras, and other electronics​.</p>
                         </div>
                     </li>
                 </ul>
             </details>
         </section>
 
-        <!-- Challenges Faced -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Challenges Faced</h2>
-            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-                <li class="mb-2">Challenge 1: Description of the challenge.</li>
-                <li class="mb-2">Challenge 2: Description of the challenge.</li>
-            </ul>
+        </section>
+
+        <!-- Main Chapters / Documentation -->
+        <section id="main-chapters" class="py-12">
+            <div class="container mx-auto px-4">
+
+                <!-- Main Header -->
+                <div class="relative">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">RI7D: Insights, Rants, and Revelations</h2>
+                    <p class="text-lg text-gray-600 mb-12">
+                        Written by <strong>Mina</strong>, the Control Systems Lead for the project, this article
+                        focuses primarily on the electronics and software side of the robot. While the mechanical and
+                        CAD teams made incredible progress, I didn’t personally work on those aspects, so I can’t
+                        comment on them in detail. From debugging outdated hardware to wrestling with faulty components,
+                        this is the story of how we made it work—against all odds.<br><br>
+                        The journey was far from smooth—delays, outdated hardware, and faulty parts made it a constant
+                        uphill battle. Despite everything going wrong, we still managed to achieve our goal: teaching
+                        people about FRC Robotics and how to build a robot in 7 days.<br><br>
+                        As an inside joke from our team, we considered rebranding this as RO0D (Robot On 0 Dollars)
+                        since that seemed more impressive than our final product.
+                    </p>
+
+                    <!-- Skip to TL;DR Button -->
+                    <a href="#tldr"
+                        class="absolute top-0 right-0 text-sm text-purple-600 hover:text-purple-800 hover:underline transition-colors duration-200">
+                        Skip to TL;DR
+                    </a>
+                </div>
+                <!-- Chapter I: Optimism -->
+                <section id="chapter1" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter I: Optimism</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        The journey began with a wave of excitement and optimism. This chapter captures the initial
+                        enthusiasm and ambitious plans as the team embarked on the project, full of hope and
+                        determination.
+                    </p>
+
+                    <!-- Day 1 -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Day 1: Kickoff and Planning</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            On Day 1, we kicked off the event at the ACE Climatic Wind Tunnel in Oshawa, where we met
+                            with other Toronto-area teams, shared ideas, and brainstormed strategies. The energy was
+                            electric as we discussed the game animation, reviewed the rulebook, and identified the
+                            subsystems we’d need to build. Mentees were introduced to the project, and everyone left the
+                            kickoff feeling motivated and ready to tackle the challenge.<br><br>
+                            At this point, we didn’t think much about what we had—or didn’t have. The only things in our
+                            possession were a drivetrain and literally nothing else. No inventory, no spare parts, no
+                            tools beyond the basics. But we were too caught up in the excitement to worry. After hours
+                            of brainstorming and planning as a team, we went home with a solid plan to start prototyping
+                            our ideas the next day. Little did we know, things wouldn’t go as smoothly as we hoped.
+                        </p>
+
+                        <!-- Kickoff Image -->
+                        <div class="mt-6">
+                            <img src="./imgs/gallery/pictures/kickoff.jpg" alt="Kickoff at ACE Climatic Wind Tunnel"
+                                class="w-full rounded-lg shadow-md">
+                            <p class="text-sm text-gray-500 mt-2 text-center">
+                                The team at the ACE Climatic Wind Tunnel during the kickoff, meeting with other
+                                Toronto-area
+                                teams and brainstorming ideas.
+                            </p>
+                        </div>
+                </section>
+
+                <!-- Chapter II: Cracks in the Plan -->
+                <section id="chapter2" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter II: Cracks in the Plan</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Content for Chapter II goes here. Here, we explore the first signs of trouble—unexpected
+                        challenges, logistical hurdles, and the moments when the team realized the road ahead would be
+                        tougher than anticipated.
+                    </p>
+
+                    <!-- Day 2 -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Day 2: Design Struggles and Borrowed Parts
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            On Day 2, we didnt have access to our workspace, so we began trying to pick a point-scoring
+                            scheme to
+                            focus on. After much deliberation, we decided to focus on creating a mechanism that could
+                            score coral and process algae. (If you’re not familiar with FRC, here’s a link to the <a
+                                href="https://firstfrc.blob.core.windows.net/frc2025/Manual/2025GameManual.pdf"
+                                class="text-purple-600 hover:underline">2025 Game Manual</a> for reference.)<br><br>
+                            For those who don’t know what coral and algae are, here’s a quick explanation:
+                        </p>
+
+                        <!-- Coral and Algae Image -->
+                        <div class="mt-6">
+                            <img src="./imgs/gallery/pictures/points.png" alt="Coral and Algae"
+                                class="w-1/2 mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-500 mt-2 text-center">
+                                The coral is the white tube, and the algae is the green ball.
+                            </p>
+                        </div>
+
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            We finally settled on what we thought would be our final design and began identifying
+                            potential issues before prototyping it with wood. Meanwhile, I compiled a list of
+                            electronics we needed to borrow from other teams, and team members went out to gather the
+                            necessary components. In a moment of overconfidence (or sheer optimism), I started working
+                            on the code without even considering the hardware we had—or didn’t have. (I now know, that
+                            it wasn't the best idea)<br><br>
+                            By the end of the day, we weren’t entirely satisfied with our design so we had to scrap it,
+                            but we managed to
+                            secure a RoboRIO, radio, and PDP from another team, which we would receive the next morning
+                            (Day 3).
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Chapter III: Despair -->
+                <section id="chapter3" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter III: Despair</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        By the beginning of Day 3, the reality of our tight deadline started to sink in. With only four
+                        days left and not much progress to show for the first two days, the team began to feel the
+                        weight of the situation. The pressure was mounting, and the stress was palpable.
+                    </p>
+
+                    <!-- Day 3 -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Day 3: The Battery Crisis</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We started the day by assembling what little we had from our inventory: a RoboRIO, a radio,
+                            and four motor controllers. That’s when we realized something glaringly obvious—we didn’t
+                            have a battery. Without a battery, we couldn’t test any of the electronics, and we couldn’t
+                            test any of the code. It was a major roadblock that brought everything to a
+                            standstill.<br><br>
+                            With nothing to do on the control systems side, most of the control systems team pitched in
+                            to help with mechanical and CAD work wherever they could. It was a frustrating and
+                            demoralizing day, but we had no choice but to keep pushing forward.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Chapter IV: The Turning Point -->
+                <section id="chapter4" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter IV: The Turning Point</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Content for Chapter IV goes here. A pivotal moment in the story, where the team rallied
+                        together, found innovative solutions, and began to turn the tide in their favor.
+                    </p>
+
+                    <!-- Day 4 and 5 -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Day 4 and 5: Locking In and Problem-Solving
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            By Day 4, we were fully locked in. We borrowed a battery and a VRM (Voltage Regulation
+                            Module), only to realize we didn’t have the right cable to power the VRM. So, one of us went
+                            out
+                            and bought the cable (that was only avaliable from a store 4 hours away). Then, we
+                            discovered we didn’t have the lugs for the 6 AWG wire needed
+                            to connect the battery. So its my turn for a trip to the store, and we finally had what we
+                            needed. These
+                            days were a whirlwind—every problem that came up, we tackled head-on without slowing down.
+                        </p>
+
+                        <!-- Buying the Lugs -->
+                        <div class="mt-6">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">The Great Lug Hunt</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Let me tell you about the time I went on a mission to buy lugs. Picture this: Me and
+                                some people from the team are
+                                standing in the hardware store, staring at a wall of electrical components, trying to
+                                figure out which lugs are the right size for 6 AWG wire. After a few minutes of
+                                confusion (and maybe a little panic), we finally found what we needed. It wasn’t exactly
+                                a glamorous moment, but it was a small victory in the grand scheme of things. Little did
+                                I know, this was just the beginning of our troubleshooting adventures.
+                            </p>
+                        </div>
+
+                        <!-- Lugs Image -->
+                        <div class="mt-6">
+                            <img src="./imgs/gallery/pictures/lugs.jpg" alt="Terminal Lugs"
+                                class="w-1/2 mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-500 mt-2 text-center">
+                                The lugs we finally found after a long search. This was one of the many hurdles we faced
+                                during the build.
+                            </p>
+                        </div>
+
+                        <p class="text-gray-600 leading-relaxed mt-6">
+                            With the battery and VRM in place, we could finally flash the radio and the RoboRIO,
+                            allowing us to start testing and working on the software side of the robot. After flashing
+                            the radio, we spent some time trying to push code, but nothing was working. The motor
+                            controllers were flashing strange colors, and after wasting some time, I looked up the error
+                            codes. Turns out, they were indicating a <strong>sticky fault</strong>.<br><br>
+                            <strong>What’s a sticky fault?</strong> It’s a persistent error in the motor controller that
+                            doesn’t clear automatically and requires manual intervention to reset. According to the PDF
+                            spec sheet for the motor controller, I needed to connect to the RoboRIO or PDP (Power
+                            Distribution Panel) to clear the faults manually. The PDP, however, was made in 2015 and
+                            didn’t have a USB-C port or anything modern—so I had to plug into the RoboRIO
+                            instead.<br><br>
+                            But when I opened Phoenix Tuner (a software tool used to configure and diagnose CAN devices
+                            on FRC robots), nothing showed up. This meant there was likely an issue
+                            with the CAN wiring. At this point, literally anything could be wrong—this was the first
+                            time I was dealing with this hardware, and after double- and triple-checking everything, we
+                            still couldn’t clear the sticky faults or test if any of the components worked. It was a
+                            frustrating setback, and we started to dread what Day 6 might bring.
+                        </p>
+
+                        <!-- PDP Fault Image -->
+                        <div class="mt-6">
+                            <img src="./imgs/gallery/pictures/pdperror.jpg" alt="PDP with Red Light Indicating Fault"
+                                class="w-1/2 mx-auto rounded-lg shadow-md">
+                            <p class="text-sm text-gray-500 mt-2 text-center">
+                                The PDP with a red light indicating a communication or power fault. This was one of the
+                                many hurdles we faced during the build.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter V: Recovery -->
+                <section id="chapter5" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter V: Recovery</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        This chapter captures the team’s efforts to recover from setbacks, make progress, and regain
+                        momentum as the deadline loomed closer.
+                    </p>
+
+                    <!-- Day 6 -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Day 6: A Fresh Start and New Challenges
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Deciding to start Day 6 with a fresh mind, I arrived at the workspace early and decided to
+                            tackle the CAN wiring issue head-on. I re-did all the CAN wires, plugged my laptop into the
+                            RoboRIO, and opened Phoenix Tuner. To my surprise—and slight frustration—it just worked. On
+                            the first try. I tried to balance my anger at how simple the solution was with the relief of
+                            finally making progress.<br><br>
+                            At this point, the only way to make the robot move was to manually set the output percent of
+                            a motor controller using a slider in Phoenix Tuner. But just seeing the robot’s wheels spin
+                            was enough to give the entire team a much-needed boost of motivation. It was a small
+                            victory, but it reminded us that we were capable of overcoming the challenges in front of
+                            us.<br><br>
+                            With the CAN communication issue resolved, I could now access the firmware for the PDP and
+                            motor controllers. After more scavenging on the internet, I managed to flash newer firmware
+                            onto the devices. But just as one problem was solved, another emerged. When I was writing
+                            the code for the robot, I had used WPILib 2024, thinking there wouldn’t be much of a
+                            difference—and, admittedly, out of laziness. However, I had flashed the RoboRIO with 2025
+                            firmware. Naturally, pushing 2024 code to a 2025 RoboRIO didn’t work at all (which, to be
+                            fair, makes sense). So, it was time to install WPILib 2025 and rewrite the code.<br><br>
+                            By the end of the day, the code and firmware for the RoboRIO were aligned, the motor
+                            controllers and PDP had no faults, and all the electrical components that needed a team
+                            number were properly configured. I tested and confirmed that all the motor controllers were
+                            working. It felt like we were finally making real progress.<br><br>
+                            As I left the workspace that evening, I thought everything would finally work together the
+                            next morning—the morning of the 7th and final day. Little did I know, the issues never stop.
+                        </p>
+
+                        <!-- Wheels Spinning Embed -->
+                        <div class="mt-6">
+                            <div style="position: relative; padding-bottom: 62.5%; height: 0;">
+                                <iframe id="weetPlayer" type="text/html"
+                                    src="https://app.weet.co/embed/bf417471/create-video-tutorials-with-weet"
+                                    allowfullscreen frameborder="0"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                                </iframe>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2 text-center">
+                                The robot’s wheels spinning for the first time, controlled manually using Phoenix Tuner.
+                                A small but significant victory for the team.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter VI: At the Last Moment -->
+                <section id="chapter6" class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Chapter VI: At the Last Moment</h2>
+
+                    <p class="text-gray-600 leading-relaxed">
+                        At the start of day 7, all I had to do was push code and set up the controls for my specific
+                        controller. It seemed easy enough, but after spending 30 minutes trying to upload code to the
+                        roboRIO, I was getting nowhere. I decided to reflash the radio, but still, nothing—no
+                        confirmation message, no error message, nothing in the console. Hmm.<br><br>
+                        I rechecked all the motor controllers, and they worked fine when I manually gave them a percent
+                        output. To avoid wasting more time, I immediately went back to the Victor SPX documentation.
+                        That's when I realized there were about four different types of Victor SPX classes in WPILib. I
+                        thought it might be a code issue. I used the exact code from the documentation for this specific
+                        model of motor controller, and it still didn't work. Great!<br><br>
+                        I reflashed the radio again and eventually replaced it with another one we borrowed from a
+                        different team. After reflashing the radio and setting its team number, I tested the controller,
+                        and... WE WERE DRIVING, BABY! LET'S GOOOOOOOOOO! From there, I worked on setting up the
+                        controller to drive properly with the robot and optimized it so it drove cleaner.<br><br>
+                        At this point, the mechanical and CAD teams had faced their own challenges and struggles
+                        throughout the 7 days, and everyone was just glad we had a moving, functioning robot. I honestly
+                        believe it was genuinely harder to combine a bunch of old, random components together than it
+                        would have been to build a regular bot that could do the same thing from new components. We
+                        built this robot on $0 (kind of!?). It was a real challenge, but at least we had a finished
+                        product, and we learned some invaluable life and engineering skills and lessons.<br><br>
+                        I am incredibly proud of what we achieved in just 7 days. This experience has given me the
+                        confidence that, with the lessons we've learned, we could build an even better robot in just
+                        <strong>3 days</strong> next time. (Exciting, right? Next time, here we come!)
+
+                    <div class="mt-6">
+                        <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe id="weetPlayer"
+                                type="text/html" src="https://app.weet.co/embed/d015ff0b/algae" allowfullscreen
+                                allowfullscreen frameborder="0"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">
+                            The robot pushing an algae up a ramp.
+                        </p>
+                    </div>
+
+                    </p>
+
+                    <!-- Pictures Section -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Our Robot and Team</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                            <div class="bg-gray-200 rounded-lg overflow-hidden">
+                                <img src="./imgs/gallery/pictures/demo.jpg" alt="Tunip, our robot"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="bg-gray-200 rounded-lg overflow-hidden">
+                                <img src="./imgs/gallery/pictures/1L8A7395.png" alt="Our team celebrating"
+                                    class="w-full h-60 object-cover">
+                                <img src="./imgs/gallery/pictures/sword.jpg" class="w-full h-100 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- TL;DR Section -->
+        <div class="bg-gray-50 p-6 rounded-lg mb-12" id="tldr">
+            <details class="group">
+                <summary class="cursor-pointer text-lg font-semibold text-gray-800 flex items-center justify-between">
+                    <span>TL;DR (Too Long; Didn't Read)</span>
+                    <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform duration-200" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </summary>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    Spoiler alert: It was a <strong>mess</strong>. The design wasn’t finalized until day 5, the robot
+                    had no power until day 4, and the electrical components were ancient—some even faulty. (Some
+                    datasheets were so outdated, they didn’t even exist anymore. I spent hours just trying to figure out
+                    how to use this hardware.)<br><br>
+                    We started with no inventory. Every part had to be borrowed, leading to constant delays. The robot
+                    didn’t drive until the <em>final hours</em> of the event—and even then, we had to disassemble it
+                    immediately to return the borrowed parts.<br><br>
+                    On day 7, I thought all I had to do was push code and set up the controller. Easy, right? Wrong.
+                    After 30 minutes of failed attempts, I reflashed the radio—still nothing. No errors, no messages,
+                    just silence. I double-checked the motor controllers—they worked manually, so the issue had to be in
+                    the code.<br><br>
+                    Turns out, there were multiple versions of the motor controller class in the library. I used the
+                    exact example from the docs for our model, and it still didn’t work. Fantastic. After reflashing the
+                    radio again and borrowing a replacement, I finally got it working. WE WERE DRIVING! LET’S
+                    GO!<br><br>
+                    Despite the chaos, we pulled it off. Combining old, random parts was harder than building from
+                    scratch, but we did it on a $0 budget (kind of). We learned invaluable lessons and proved we could
+                    do it even better next time—maybe in just <strong>3 days</strong>.
+                </p>
+            </details>
+        </div>
+
+        <!-- Gallery Section -->
+        <section class="mb-8" id="gallery-section">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Gallery</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                Explore the visual journey of our RI7D project through our gallery. Witness the engineering process,
+                teamwork, and milestones captured in images.
+            </p>
+            <div class="flex justify-center">
+                <a href="gallery.html"
+                    class="inline-block px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-orange-600 transition duration-300">
+                    Visit Gallery
+                </a>
+            </div>
         </section>
 
         <!-- Fun Facts -->
-        <section class="mb-8">
+        <section class="mb-8" id="fun-facts">
             <h2 class="text-2xl font-semibold text-gray-700 mb-4">Fun Facts</h2>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-                <li class="mb-2">Fun fact 1: Description of the fun fact.</li>
-                <li class="mb-2">Fun fact 2: Description of the fun fact.</li>
+                <li class="mb-6 mt-4">
+                    I had the honor of naming our robot! My suggestion, "Tunip," won the most votes. The name was
+                    inspired by the adorable Octonauts character, fitting perfectly with this year's water-themed FRC
+                    game.
+                    <img src="./imgs/gallery/pictures/Tunip.webp" alt="Tunip"
+                        class="block w-64 h-64 mt-2 mx-auto rounded-lg shadow-md">
+                </li>
+                <li class="mb-2">
+                    Balancing this project with a full school workload was no small feat. Many team members even skipped
+                    classes to contribute their time and effort to make it happen.
+                </li>
             </ul>
+        </section>
+
+        <!-- Final Result Section -->
+        <section id="final-result" class="py-12 bg-white-700">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8">Final Result</h2>
+
+                <!-- Video Container -->
+                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg" style="overflow: hidden;">
+
+                    <!-- Embedded Video -->
+                    <div style="position: relative; padding-bottom: 62.5%; height: 0;">
+                        <iframe id="weetPlayer" type="text/html" src="https://app.weet.co/embed/8f537350/demo"
+                            allowfullscreen frameborder="0"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+                        </iframe>
+                    </div>
+
+                    <div class="p-6 mt-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">The Journey to Success</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            After days of hard work, collaboration, and overcoming countless challenges, we are proud to
+                            present the final result of our project. This video showcases the culmination of our
+                            efforts, highlighting the incredible teamwork that made it all possible. We hope you enjoy
+                            watching it as much as we enjoyed creating it!
+                        </p>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
         <!-- Footer -->
         <footer class="mt-8 text-center">
             <p class="text-gray-600 mb-4">Thanks for reading!</p>
-            <p class="text-gray-600 mb-4">Check out the project on GitHub or try the live demo:</p>
+            <p class="text-gray-600 mb-4">Check out the project on GitHub:</p>
             <div class="flex justify-center space-x-4">
-                <a href="#" class="text-blue-500 hover:underline">GitHub Repository</a>
-                <a href="#" class="text-blue-500 hover:underline">Live Demo</a>
+                <a href="https://github.com/MNTadros/RI7D" class="text-purple-500 hover:underline">GitHub Repository</a>
             </div>
         </footer>
     </div>
+
 </body>
 
 </html>

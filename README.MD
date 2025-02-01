@@ -23,16 +23,9 @@ Welcome to **Robot in 7 Days (Ri7D) 2025**, a documentation of the chaotic, thri
 
 Here’s a glimpse of the final robot in action:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0; overflow: hidden; -ms-overflow-style: none; scrollbar-width: none;">
-    <iframe 
-        id="weetPlayer" 
-        type="text/html" 
-        src="https://app.weet.co/embed/8f537350/demo" 
-        allowfullscreen 
-        frameborder="0" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; overflow: hidden;">
-    </iframe>
-</div>
+
+### https://app.weet.co/embed/8f537350/demo
+
 
 ---
 
